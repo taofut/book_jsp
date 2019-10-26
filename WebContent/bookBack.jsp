@@ -110,7 +110,7 @@ if(readerForm!=null){
                   <td width="14%" bgcolor="#FFF9D9">出版社</td>
                   <td width="12%" bgcolor="#FFF9D9">书架</td>
                   <td bgcolor="#FFF9D9">定价(元)</td>
-                  <td width="12%" bgcolor="#FFF9D9"><input name="Button22" type="button" class="btn_grey" value="完成归还" onClick="window.location.href='bookBack.jsp'"></td>
+                  <td width="12%" bgcolor="#FFF9D9"><input name="Button22" type="button" class="btn_grey" value="重新归还" onClick="window.location.href='bookBack.jsp'"></td>
                 </tr>
                 <%
 int id=0;

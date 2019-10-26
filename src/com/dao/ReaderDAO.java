@@ -7,7 +7,7 @@ import com.actionForm.ReaderForm;
 
 public class ReaderDAO {
     private ConnDB conn=new ConnDB();
-//²éÑ¯Êý¾Ý
+//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 public Collection query(String strif){
     ReaderForm readerForm=null;
     Collection readerColl=new ArrayList();
@@ -44,16 +44,16 @@ public Collection query(String strif){
     conn.close();
     return readerColl;
 }
-//ÓÃÓÚÐÞ¸ÄµÄ²éÑ¯
+//ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ÄµÄ²ï¿½Ñ¯
 public ReaderForm queryM(ReaderForm readerForm){
     ReaderForm readerForm1=null;
     String sql="";
     if(readerForm.getId()!=null){
             sql="select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where r.id="+readerForm.getId()+"";
     }else if(readerForm.getBarcode()!=null){
-            sql="select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where r.barcode="+readerForm.getBarcode()+"";
+            sql="select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where r.barcode='"+readerForm.getBarcode()+"'";
         }
-    System.out.println("ÐÞ¸Ä¶ÁÕßÐÅÏ¢Ê±µÄSQL£º"+sql);
+    System.out.println("ï¿½Þ¸Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ê±ï¿½ï¿½SQLï¿½ï¿½"+sql);
     ResultSet rs=conn.executeQuery(sql);
     try {
         while (rs.next()) {
@@ -81,7 +81,7 @@ public ReaderForm queryM(ReaderForm readerForm){
     conn.close();
     return readerForm1;
 }
-//Ìí¼ÓÊý¾Ý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public int insert(ReaderForm readerForm){
 String sql1="SELECT * FROM tb_reader WHERE barcode='"+readerForm.getBarcode()+"'";
 ResultSet rs = conn.executeQuery(sql1);
@@ -93,7 +93,7 @@ try {
     } else {
         sql ="Insert into tb_reader (name,sex,barcode,vocation,birthday,paperType,paperNO,tel,email,createDate,operator,remark,typeid) values('"+readerForm.getName()+"','"+readerForm.getSex()+"','"+readerForm.getBarcode()+"','"+readerForm.getVocation()+"','"+readerForm.getBirthday()+"','"+readerForm.getPaperType()+"','"+readerForm.getPaperNO()+"','"+readerForm.getTel()+"','"+readerForm.getEmail()+"','"+readerForm.getCreateDate()+"','"+readerForm.getOperator()+"','"+readerForm.getRemark()+"',"+readerForm.getTypeid()+")";
         falg = conn.executeUpdate(sql);
-        System.out.println("Ìí¼Ó¶ÁÕßÐÅÏ¢µÄSQL£º" + sql);
+        System.out.println("ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½SQLï¿½ï¿½" + sql);
         conn.close();
     }
 } catch (SQLException ex) {
@@ -103,19 +103,19 @@ System.out.println("falg:"+falg);
 return falg;
 }
 
-//ÐÞ¸ÄÊý¾Ý
+//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 public int update(ReaderForm readerForm){
 String sql="Update tb_reader set sex='"+readerForm.getSex()+"',barcode='"+readerForm.getBarcode()+"',vocation='"+readerForm.getVocation()+"',birthday='"+readerForm.getBirthday()+"',paperType='"+readerForm.getPaperType()+"',paperNO='"+readerForm.getPaperNO()+"',tel='"+readerForm.getTel()+"',email='"+readerForm.getEmail()+"',remark='"+readerForm.getRemark()+"',typeid="+readerForm.getTypeid()+" where id="+readerForm.getId()+"";
 int falg=conn.executeUpdate(sql);
-System.out.println("ÐÞ¸ÄÊý¾ÝÊ±µÄSQL£º"+sql);
+System.out.println("ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½SQLï¿½ï¿½"+sql);
 conn.close();
 return falg;
 }
-//É¾³ýÊý¾Ý
+//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public int delete(ReaderForm readerForm){
 String sql="Delete from tb_reader where id="+readerForm.getId()+"";
 int falg=conn.executeUpdate(sql);
-System.out.println("É¾³ýÊ±µÄSQL£º"+sql);
+System.out.println("É¾ï¿½ï¿½Ê±ï¿½ï¿½SQLï¿½ï¿½"+sql);
 return falg;
 }
 }

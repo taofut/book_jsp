@@ -123,9 +123,9 @@ if(readerForm!=null){
                    <input name="f" type="radio" class="noborder" value="bookname">
 图书名称&nbsp;&nbsp;
 <input name="inputkey" type="text" id="inputkey" size="50">
-                   <input name="Submit2" type="button" class="btn_grey" value="确定" onClick="checkbook(form1)">
+                   <input name="Submit2" type="button" class="btn_grey" value="确定借阅" onClick="checkbook(form1)">
                    <input name="operator" type="hidden" id="operator" value="<%=manager%>">
-  <input name="Button" type="button" class="btn_grey" value="完成借阅" onClick="window.location.href='bookBorrow.jsp'">
+  <input name="Button" type="button" class="btn_grey" value="重新借阅" onClick="window.location.href='bookBorrow.jsp'">
                    </td>
                </tr> 
           <tr>

@@ -94,7 +94,7 @@ function check(form){
         <td width="173" align="center"><input name="id" type="hidden" id="id" value="<%=ID%>">
           条&nbsp;形&nbsp;码：</td>
         <td width="427" height="39">
-          <input name="barcode" type="text" id="barcode" value="<%=barcode%>"></td>
+          <input name="barcode" readonly type="text" id="barcode" value="<%=barcode%>"></td>
       </tr>
       <tr>
         <td align="center">图书名称：</td>
